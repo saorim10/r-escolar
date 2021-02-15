@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Reforço Escolar</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <header>
+            <img src="logo.PNG" alt='logo' />
+            <h2>Reforço Escolar - Matemática 1</h2>
+            <form>
+                Nome: <input id='nome' type="text" name='nome'>
+            </form>
+            </header>
+            <table>
+                <caption><strong>Matemática Básica</strong></caption>
+                <thead>
+                    <th>Soma</th>
+                    <th>Subtração</th>
+                    <th>Multiplicação</th>
+                    <th>Divisão</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="paginas/mat01.html">Lição 1</a></td>
+                        <td>Lição 1</td>
+                        <td>Aula 1</td>
+                        <td>Aula 1</td>
+                    </tr>
+                    <tr>
+                        <td><a href="paginas/mat02.html">Lição 2</a></td>
+                        <td>Lição 2</td>
+                        <td>Aula 2</td>
+                        <td>Aula 2</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" align="center">Rodapé da tabela</td>
+                    </tr>
+
+                    </tfoot>
+            </table>
+        </nav>
+        <section id='conteudo'>
+            
+        </section>
+        <aside>
+            Barra Lateral
+        </aside>
+        <footer>
+            <p>By Marcelo Saorim</p>
+        </footer>
+
+        <script>
+            document.querySelectorAll('a').forEach(link => {
+                const content = document.getElementById('conteudo')
+                link.onclick = function (e) {
+                    e.preventDefault()
+                    fetch(link.href)
+                        .then(resp => resp.text())
+                        .then(html => conteudo.innerHTML = html)
+                }
+            })
+
+            document.querySelectorAll('[re-folder]').forEach(folder => {
+                folder.onclick = function (e) {
+                    const ul = folder.nextElementSibling
+                    const ad = ul.style.display
+                    if (ad === 'none') {
+                        ul.style.display = 'block'
+                    } else {
+                        ul.style.display = 'none'
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
